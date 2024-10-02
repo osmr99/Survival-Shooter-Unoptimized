@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 
 public class PlayerHealth : MonoBehaviour
@@ -22,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
     bool isDead;
     bool damaged;
 
+    [SerializeField] private UnityEvent gameOver; // Used for GameOverManager script
 
     void Awake ()
     {
@@ -77,6 +79,8 @@ public class PlayerHealth : MonoBehaviour
 
         playerMovement.enabled = false;
         playerShooting.enabled = false;
+
+        gameOver.Invoke();
     }
 
 

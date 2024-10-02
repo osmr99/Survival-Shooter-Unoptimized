@@ -4,10 +4,15 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    void Update ()
+    Transform player;
+    private void Start()
     {
-        Transform player = FindObjectOfType<PlayerMovement>().transform;
+        player = FindObjectOfType<PlayerMovement>().transform;
+    }
 
+    private void Update ()
+    {
+        // Transform player = FindObjectOfType<PlayerMovement>().transform;
         if (GetComponent<EnemyHealth>().currentHealth > 0 && player.GetComponent<PlayerHealth>().currentHealth > 0)
         {
             GetComponent<NavMeshAgent>().SetDestination (player.position);
