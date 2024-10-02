@@ -1868,6 +1868,7 @@ MonoBehaviour:
   spawnTime: 3
   spawnPoints:
   - {fileID: 1456155940}
+  enemiesCounts: {fileID: 11400000, guid: a3a2cefaced0b8a4d8b4ab47e93c7f00, type: 2}
 --- !u!4 &2135234548
 Transform:
   m_ObjectHideFlags: 0
@@ -1897,9 +1898,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1299572197}
   enemy: {fileID: 1819768538276330, guid: ebed7a3ef4be5458fb88a3c3a689c566, type: 3}
-  spawnTime: 10
+  spawnTime: 5
   spawnPoints:
   - {fileID: 694235421}
+  enemiesCounts: {fileID: 11400000, guid: a3a2cefaced0b8a4d8b4ab47e93c7f00, type: 2}
 --- !u!114 &2135234550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1914,6 +1916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1299572197}
   enemy: {fileID: 1161934229116340, guid: 78e1368557eab4d62a5487e98c1b5c5f, type: 3}
-  spawnTime: 3
+  spawnTime: 4
   spawnPoints:
   - {fileID: 1084502847}
+  enemiesCounts: {fileID: 11400000, guid: a3a2cefaced0b8a4d8b4ab47e93c7f00, type: 2}

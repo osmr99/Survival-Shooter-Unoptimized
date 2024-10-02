@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Events;
 using System.Collections;
 
 public class GameOverManager : MonoBehaviour

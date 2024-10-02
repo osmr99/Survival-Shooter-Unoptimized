@@ -16,6 +16,7 @@ public class EnemyHealth : MonoBehaviour
     bool isDead;
     bool isSinking;
 
+    [SerializeField] EnemyCurrentAndMaxCounts enemiesCounts; // Scriptable Object
 
     void Awake ()
     {
@@ -66,6 +67,8 @@ public class EnemyHealth : MonoBehaviour
 
         enemyAudio.clip = deathClip;
         enemyAudio.Play ();
+
+        enemiesCounts.currentCount--;
     }
 
 

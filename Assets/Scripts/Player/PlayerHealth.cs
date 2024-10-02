@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
@@ -35,7 +34,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
-    void Update ()
+    /*void Update ()
     {
         if(damaged)
         {
@@ -44,6 +43,19 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+        }
+        damaged = false;
+    }*/
+
+    private void FixedUpdate()
+    {
+        if (damaged)
+        {
+            damageImage.color = flashColour;
+        }
+        else
+        {
+            damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
         damaged = false;
     }
