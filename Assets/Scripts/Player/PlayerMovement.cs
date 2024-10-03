@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,7 +11,11 @@ public class PlayerMovement : MonoBehaviour
 	private int floorMask;
 	private float camRayLength = 100f;
 
-	void Awake()
+	public float h;
+	public float v;
+
+
+    void Awake()
 	{
 		floorMask = LayerMask.GetMask("Floor");
 		anim = GetComponent<Animator>();
@@ -19,21 +24,25 @@ public class PlayerMovement : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		float h = Input.GetAxisRaw("Horizontal");
-		float v = Input.GetAxisRaw("Vertical");
+        //h = Input.GetAxisRaw("Horizontal");
+        //v = Input.GetAxisRaw("Vertical");
 
-		Move(h, v);
+        //Move(h, v);
+        //Turning();
+        //Animating(h, v);
+
+        Move();
 		Turning();
-		Animating(h, v);
-	}
+        Animating();
+    }
 
-	void Move(float h, float v)
+	void Move()
 	{
-		movement.Set(h, 0f, v);
-		movement = movement.normalized * speed * Time.deltaTime;
+        //movement.Set(h, 0f, v);
+        movement = movement.normalized * speed * Time.deltaTime;
 
-		playerRigidbody.MovePosition(transform.position + movement);
-	}
+        playerRigidbody.MovePosition(transform.position + movement);
+    }
 
 	void Turning()
 	{
@@ -49,10 +58,19 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
-	void Animating(float h, float v)
+	void Animating()
 	{
-		bool walking = h != 0f || v != 0f;
+        //bool walking = h != 0f || v != 0f;
+        //anim.SetBool("IsWalking", walking);
+        if (movement.x != 0 || movement.z != 0)
+            anim.SetBool("IsWalking", true);
+		else
+            anim.SetBool("IsWalking", false);
 
-		anim.SetBool("IsWalking", walking);
-	}
+    }
+
+	public void OnMovement(InputValue value)
+	{
+        movement = value.Get<Vector3>();
+    }
 }

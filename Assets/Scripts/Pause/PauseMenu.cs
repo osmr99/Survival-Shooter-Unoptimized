@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,7 +23,10 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame() // called when quit buttin is clicked
     {
-        Application.Quit();
+        if (EditorApplication.isPlaying)
+            EditorApplication.isPlaying = false;
+        else
+            Application.Quit();
     }
 
     private void OnDestroy() // called when unpaused
