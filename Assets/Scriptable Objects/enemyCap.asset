@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCount: 9
   maxCount: 9
+  nextEnemyID: 2

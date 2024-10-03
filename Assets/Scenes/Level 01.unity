@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45061475, g: 0.4986083, b: 0.56437457, a: 1}
+  m_IndirectSpecularColor: {r: 0.45061505, g: 0.498609, b: 0.56437516, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1357,6 +1357,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24300000, guid: 8434b04884c414ac6b468e10945685e6,
         type: 2}
+    - target: {fileID: 114508338712467710, guid: 9e3e72cd89ef44f97afe08f9baaabc18,
+        type: 3}
+      propertyPath: timeBetweenBullets
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 114762724205432510, guid: 9e3e72cd89ef44f97afe08f9baaabc18,
         type: 3}
       propertyPath: stats
@@ -1980,12 +1985,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a99222b1e4a384e923ac7e86efc709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1719079804300652, guid: 4e3b7f611582d4dc7a9dd318242ed5e3, type: 3}
+  enemyPrefab: {fileID: 1719079804300652, guid: 4e3b7f611582d4dc7a9dd318242ed5e3,
+    type: 3}
   spawnTime: 3
   spawnPoints:
   - {fileID: 1456155940}
-  enemyCap: {fileID: 11400000, guid: a3a2cefaced0b8a4d8b4ab47e93c7f00, type: 2}
   stats: {fileID: 11400000, guid: bfa7e85c6ddc12243b770660502d3e23, type: 2}
+  enemyCap: {fileID: 11400000, guid: a3a2cefaced0b8a4d8b4ab47e93c7f00, type: 2}
+  enemyAmount: 9
+  enemyID: 1
 --- !u!4 &2135234548
 Transform:
   m_ObjectHideFlags: 0
@@ -2013,12 +2021,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a99222b1e4a384e923ac7e86efc709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1819768538276330, guid: ebed7a3ef4be5458fb88a3c3a689c566, type: 3}
+  enemyPrefab: {fileID: 1819768538276330, guid: ebed7a3ef4be5458fb88a3c3a689c566,
+    type: 3}
   spawnTime: 5
   spawnPoints:
   - {fileID: 694235421}
-  enemyCap: {fileID: 11400000, guid: a3a2cefaced0b8a4d8b4ab47e93c7f00, type: 2}
   stats: {fileID: 11400000, guid: bfa7e85c6ddc12243b770660502d3e23, type: 2}
+  enemyCap: {fileID: 11400000, guid: a3a2cefaced0b8a4d8b4ab47e93c7f00, type: 2}
+  enemyAmount: 9
+  enemyID: 3
 --- !u!114 &2135234550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2031,9 +2042,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a99222b1e4a384e923ac7e86efc709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1161934229116340, guid: 78e1368557eab4d62a5487e98c1b5c5f, type: 3}
+  enemyPrefab: {fileID: 1161934229116340, guid: 78e1368557eab4d62a5487e98c1b5c5f,
+    type: 3}
   spawnTime: 4
   spawnPoints:
   - {fileID: 1084502847}
-  enemyCap: {fileID: 11400000, guid: a3a2cefaced0b8a4d8b4ab47e93c7f00, type: 2}
   stats: {fileID: 11400000, guid: bfa7e85c6ddc12243b770660502d3e23, type: 2}
+  enemyCap: {fileID: 11400000, guid: a3a2cefaced0b8a4d8b4ab47e93c7f00, type: 2}
+  enemyAmount: 9
+  enemyID: 2

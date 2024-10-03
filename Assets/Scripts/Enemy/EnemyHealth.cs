@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int startingHealth = 100;
+    public int startingHealth;
     public int currentHealth;
     public float sinkSpeed = 2.5f;
     public int scoreValue = 10;
@@ -19,6 +21,7 @@ public class EnemyHealth : MonoBehaviour
 
     Rigidbody rb;
     NavMeshAgent agent;
+    EnemyManager enemyManager;
 
     [SerializeField] EnemyCurrentAndMaxCounts enemiesCounts; // Scriptable Object
     [SerializeField] ScoreCounter currentScore; // Scriptable Object
@@ -35,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
         rb = GetComponent <Rigidbody> ();
         agent = GetComponent <NavMeshAgent> ();
         currentHealth = startingHealth;
-
+        enemyManager = FindObjectOfType<EnemyManager> ();
     }
 
 
@@ -92,8 +95,27 @@ public class EnemyHealth : MonoBehaviour
         agent.enabled = false;
         rb.isKinematic = true;
         isSinking = true;
+        capsuleCollider.isTrigger = false;
         currentScore.score += scoreValue;
         FindObjectOfType<ScoreManager>().updateScore();
-        Destroy (gameObject, 2f);
+        //Destroy (gameObject, 2f);
+        StartCoroutine(DeathDelay());
+    }
+
+    public void Spawn(Transform[] location, int index)
+    {
+        isDead = false;
+        isSinking = false;
+        rb.isKinematic = false;
+        currentHealth = startingHealth;
+        gameObject.transform.position = location[index].transform.position;
+        gameObject.transform.rotation = location[index].transform.rotation;
+        agent.enabled = true;
+    }
+
+    IEnumerator DeathDelay()
+    {
+        yield return new WaitForSeconds(2f);
+        enemyManager.AddAgainToQueue(gameObject);
     }
 }

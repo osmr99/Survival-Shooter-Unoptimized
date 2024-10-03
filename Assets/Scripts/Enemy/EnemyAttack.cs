@@ -29,18 +29,14 @@ public class EnemyAttack : MonoBehaviour
     void OnTriggerEnter (Collider other)
     {
         if(other.gameObject == player)
-        {
             playerInRange = true;
-        }
     }
 
 
     void OnTriggerExit (Collider other)
     {
         if(other.gameObject == player)
-        {
             playerInRange = false;
-        }
     }
 
 
@@ -49,9 +45,7 @@ public class EnemyAttack : MonoBehaviour
         timer += Time.deltaTime;
 
         if(timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
-        {
             Attack ();
-        }
 
         if(stats.currentHealth <= 0)
         {
@@ -66,8 +60,6 @@ public class EnemyAttack : MonoBehaviour
         timer = 0f;
 
         if(stats.currentHealth > 0)
-        {
             playerHealth.TakeDamage (attackDamage);
-        }
     }
 }

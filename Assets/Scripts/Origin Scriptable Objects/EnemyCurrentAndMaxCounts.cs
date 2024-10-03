@@ -5,4 +5,5 @@ public class EnemyCurrentAndMaxCounts : ScriptableObject
 {
     public int currentCount;
     public int maxCount;
+    public int nextEnemyID;
 }
