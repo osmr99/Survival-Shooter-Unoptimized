@@ -20,7 +20,6 @@ public class GameOverManager : MonoBehaviour
 
     public void gameOver() // Unity Event that gets Invoked by PlayerHealth script
     {
-        Debug.Log("yes");
         anim.SetTrigger("GameOver");
         StartCoroutine(restartGame());
     }

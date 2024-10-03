@@ -13,6 +13,8 @@ public class EnemyAttack : MonoBehaviour
     bool playerInRange;
     float timer;
 
+    [SerializeField] PlayerStats stats; // Scriptable Object
+
 
     void Awake ()
     {
@@ -50,7 +52,7 @@ public class EnemyAttack : MonoBehaviour
             Attack ();
         }
 
-        if(playerHealth.currentHealth <= 0)
+        if(stats.currentHealth <= 0)
         {
             anim.SetTrigger ("PlayerDead");
         }
@@ -61,7 +63,7 @@ public class EnemyAttack : MonoBehaviour
     {
         timer = 0f;
 
-        if(playerHealth.currentHealth > 0)
+        if(stats.currentHealth > 0)
         {
             playerHealth.TakeDamage (attackDamage);
         }

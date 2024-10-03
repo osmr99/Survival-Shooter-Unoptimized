@@ -10102,6 +10102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f6618a0da65fa45b24d5105d5d8422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: bfa7e85c6ddc12243b770660502d3e23, type: 2}
 --- !u!114 &114153904350160260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10134,6 +10135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 0.5
   attackDamage: 30
+  stats: {fileID: 11400000, guid: bfa7e85c6ddc12243b770660502d3e23, type: 2}
 --- !u!1 &1915870434614438
 GameObject:
   m_ObjectHideFlags: 0

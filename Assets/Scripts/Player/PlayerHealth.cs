@@ -6,8 +6,8 @@ using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int startingHealth = 100;
-    public int currentHealth;
+    //public int startingHealth = 100;
+    //public int currentHealth;
     public Slider healthSlider;
     public Image damageImage;
     public AudioClip deathClip;
@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
     bool damaged;
 
     [SerializeField] private UnityEvent gameOver; // Used for GameOverManager script
+    [SerializeField] PlayerStats stats; // Scriptable Object
 
     void Awake ()
     {
@@ -30,7 +31,8 @@ public class PlayerHealth : MonoBehaviour
         playerAudio = GetComponent <AudioSource> ();
         playerMovement = GetComponent <PlayerMovement> ();
         playerShooting = GetComponentInChildren <PlayerShooting> ();
-        currentHealth = startingHealth;
+        stats.startingHealth = 100;
+        stats.currentHealth = stats.startingHealth;
     }
 
 
@@ -65,13 +67,13 @@ public class PlayerHealth : MonoBehaviour
     {
         damaged = true;
 
-        currentHealth -= amount;
+        stats.currentHealth -= amount;
 
-        healthSlider.value = currentHealth;
+        healthSlider.value = stats.currentHealth;
 
         playerAudio.Play ();
 
-        if(currentHealth <= 0 && !isDead)
+        if(stats.currentHealth <= 0 && !isDead)
         {
             Death ();
         }

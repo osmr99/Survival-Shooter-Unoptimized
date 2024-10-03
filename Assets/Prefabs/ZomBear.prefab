@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f6618a0da65fa45b24d5105d5d8422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: bfa7e85c6ddc12243b770660502d3e23, type: 2}
 --- !u!114 &114405961790049756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 0.5
   attackDamage: 15
+  stats: {fileID: 11400000, guid: bfa7e85c6ddc12243b770660502d3e23, type: 2}
 --- !u!114 &114858573952562612
 MonoBehaviour:
   m_ObjectHideFlags: 0

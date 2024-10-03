@@ -2,12 +2,13 @@
 
 public class EnemyManager : MonoBehaviour
 {
-    public PlayerHealth playerHealth;
+    //public PlayerHealth playerHealth;
     public GameObject enemy;
     public float spawnTime = 3f;
     public Transform[] spawnPoints;
 
     [SerializeField] EnemyCurrentAndMaxCounts enemiesCounts; // Scriptable Object
+    [SerializeField] PlayerStats stats; // Scriptable Object
 
 
     void Start ()
@@ -24,7 +25,7 @@ public class EnemyManager : MonoBehaviour
 
     void Spawn ()
     {
-        if(playerHealth.currentHealth <= 0f)
+        if(stats.currentHealth <= 0f)
         {
             return;
         }
