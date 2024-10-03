@@ -24,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private UnityEvent gameOver; // Used for GameOverManager script
     [SerializeField] PlayerStats stats; // Scriptable Object
+    int id_Die = Animator.StringToHash("Die");
 
     void Awake ()
     {
@@ -86,7 +87,8 @@ public class PlayerHealth : MonoBehaviour
 
         playerShooting.DisableEffects ();
 
-        anim.SetTrigger ("Die");
+        //anim.SetTrigger ("Die");
+        anim.SetTrigger(id_Die);
 
         playerAudio.clip = deathClip;
         playerAudio.Play ();

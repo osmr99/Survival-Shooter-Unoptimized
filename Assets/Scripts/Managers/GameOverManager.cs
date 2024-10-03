@@ -8,10 +8,10 @@ public class GameOverManager : MonoBehaviour
 	public float restartDelay = 5f;
     
 
-
     Animator anim;
-	//float restartTimer;
+    //float restartTimer;
 
+    int id_GameOver = Animator.StringToHash("GameOver");
 
     void Awake()
     {
@@ -20,7 +20,8 @@ public class GameOverManager : MonoBehaviour
 
     public void gameOver() // Unity Event that gets Invoked by PlayerHealth script
     {
-        anim.SetTrigger("GameOver");
+        //anim.SetTrigger("GameOver");
+        anim.SetTrigger(id_GameOver);
         StartCoroutine(restartGame());
     }
 

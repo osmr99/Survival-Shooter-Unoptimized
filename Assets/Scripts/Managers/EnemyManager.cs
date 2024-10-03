@@ -7,14 +7,14 @@ public class EnemyManager : MonoBehaviour
     public float spawnTime = 3f;
     public Transform[] spawnPoints;
 
-    [SerializeField] EnemyCurrentAndMaxCounts enemiesCounts; // Scriptable Object
+    [SerializeField] EnemyCurrentAndMaxCounts enemyCap; // Scriptable Object
     [SerializeField] PlayerStats stats; // Scriptable Object
 
 
     void Start ()
     {
         InvokeRepeating ("Spawn", spawnTime, spawnTime);
-        enemiesCounts.currentCount = 0;
+        enemyCap.currentCount = 0;
     }
 
     /*void Update()
@@ -32,10 +32,10 @@ public class EnemyManager : MonoBehaviour
 
         int spawnPointIndex = Random.Range (0, spawnPoints.Length);
 
-        if(enemiesCounts.currentCount < enemiesCounts.maxCount)
+        if(enemyCap.currentCount < enemyCap.maxCount)
         {
             Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-            enemiesCounts.currentCount++;
+            enemyCap.currentCount++;
         }
     }
 }

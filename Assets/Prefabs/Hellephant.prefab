@@ -10121,6 +10121,7 @@ MonoBehaviour:
   scoreValue: 50
   deathClip: {fileID: 8300000, guid: 8c615fd0429f34edf85539d70279360d, type: 3}
   enemiesCounts: {fileID: 11400000, guid: a3a2cefaced0b8a4d8b4ab47e93c7f00, type: 2}
+  currentScore: {fileID: 11400000, guid: 02c7dfa1d4dd0f845817d119b10e38db, type: 2}
 --- !u!114 &114290231285748624
 MonoBehaviour:
   m_ObjectHideFlags: 0

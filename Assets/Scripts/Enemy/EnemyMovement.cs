@@ -40,7 +40,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (currentHP > 0 && stats.currentHealth > 0)
+        if (currentHP > 0 && stats.currentHealth > 0 && agent.enabled == true)
             agent.SetDestination(player.position);
         else
             agent.enabled = false;

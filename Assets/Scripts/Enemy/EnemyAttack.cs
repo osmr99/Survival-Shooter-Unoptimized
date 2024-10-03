@@ -14,6 +14,7 @@ public class EnemyAttack : MonoBehaviour
     float timer;
 
     [SerializeField] PlayerStats stats; // Scriptable Object
+    int id_PlayerDead = Animator.StringToHash("PlayerDead");
 
 
     void Awake ()
@@ -54,7 +55,8 @@ public class EnemyAttack : MonoBehaviour
 
         if(stats.currentHealth <= 0)
         {
-            anim.SetTrigger ("PlayerDead");
+            //anim.SetTrigger ("PlayerDead");
+            anim.SetTrigger (id_PlayerDead);
         }
     }
 

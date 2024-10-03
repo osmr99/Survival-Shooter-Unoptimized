@@ -4,17 +4,18 @@ using System.Collections;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static int score;
-
+    //public static int score;
 
     static Text text;
+
+    [SerializeField] ScoreCounter currentScore; // Scriptable Object
 
 
     void Awake ()
     {
-        score = 0;
+        currentScore.score = 0;
         text = GameObject.Find("ScoreText").GetComponent<Text>(); // For a one time call, this for
-                                                                 // optimization is fine. For a overall project, it's not very smart.
+                                                                 // optimization is fine. For an overall project, it's not very smart.
     }
 
 
@@ -23,9 +24,9 @@ public class ScoreManager : MonoBehaviour
         text.text = "Score: " + score;
     }*/
 
-    static public void updateScore(int value)
+    public void updateScore()
     {
-        score += value;
-        text.text = "Score: " + score;
+        //currentScore.score += value; // This is done in the EnemyHealth script for optimization purposes
+        text.text = "Score: " + currentScore.score;
     }
 }

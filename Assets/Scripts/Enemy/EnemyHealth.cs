@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -16,7 +17,13 @@ public class EnemyHealth : MonoBehaviour
     bool isDead;
     bool isSinking;
 
+    Rigidbody rb;
+    NavMeshAgent agent;
+
     [SerializeField] EnemyCurrentAndMaxCounts enemiesCounts; // Scriptable Object
+    [SerializeField] ScoreCounter currentScore; // Scriptable Object
+
+    int id_dead = Animator.StringToHash("Dead");
 
     void Awake ()
     {
@@ -25,16 +32,17 @@ public class EnemyHealth : MonoBehaviour
         hitParticles = GetComponentInChildren <ParticleSystem> ();
         capsuleCollider = GetComponent <CapsuleCollider> ();
 
+        rb = GetComponent <Rigidbody> ();
+        agent = GetComponent <NavMeshAgent> ();
         currentHealth = startingHealth;
+
     }
 
 
     void Update ()
     {
         if(isSinking)
-        {
             transform.Translate (-Vector3.up * sinkSpeed * Time.deltaTime);
-        }
     }
 
 
@@ -51,9 +59,7 @@ public class EnemyHealth : MonoBehaviour
         hitParticles.Play();
 
         if(currentHealth <= 0)
-        {
             Death ();
-        }
     }
 
 
@@ -63,7 +69,8 @@ public class EnemyHealth : MonoBehaviour
 
         capsuleCollider.isTrigger = true;
 
-        anim.SetTrigger ("Dead");
+        //anim.SetTrigger ("Dead");
+        anim.SetTrigger(id_dead);
 
         enemyAudio.clip = deathClip;
         enemyAudio.Play ();
@@ -71,13 +78,22 @@ public class EnemyHealth : MonoBehaviour
         enemiesCounts.currentCount--;
     }
 
-
-    public void StartSinking ()
+    /*public void StartSinking ()
     {
         GetComponent <UnityEngine.AI.NavMeshAgent> ().enabled = false;
         GetComponent <Rigidbody> ().isKinematic = true;
         isSinking = true;
         ScoreManager.updateScore(scoreValue);
+        Destroy (gameObject, 2f);
+    }*/
+
+    public void StartSinking ()
+    {
+        agent.enabled = false;
+        rb.isKinematic = true;
+        isSinking = true;
+        currentScore.score += scoreValue;
+        FindObjectOfType<ScoreManager>().updateScore();
         Destroy (gameObject, 2f);
     }
 }

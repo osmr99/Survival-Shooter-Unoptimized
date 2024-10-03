@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
 	public float h;
 	public float v;
 
+	int id_IsWalking = Animator.StringToHash("IsWalking");
+
 
     void Awake()
 	{
@@ -63,9 +65,9 @@ public class PlayerMovement : MonoBehaviour
         //bool walking = h != 0f || v != 0f;
         //anim.SetBool("IsWalking", walking);
         if (movement.x != 0 || movement.z != 0)
-            anim.SetBool("IsWalking", true);
+            anim.SetBool(id_IsWalking, true);
 		else
-            anim.SetBool("IsWalking", false);
+            anim.SetBool(id_IsWalking, false);
 
     }
 
