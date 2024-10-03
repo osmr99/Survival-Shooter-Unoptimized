@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int startingHealth;
     public int currentHealth;
     public float sinkSpeed = 2.5f;
     public int scoreValue = 10;
@@ -23,6 +22,7 @@ public class EnemyHealth : MonoBehaviour
     NavMeshAgent agent;
     EnemyManager enemyManager;
 
+    [SerializeField] IntData startingHealth;
     [SerializeField] EnemyCurrentAndMaxCounts enemiesCounts; // Scriptable Object
     [SerializeField] ScoreCounter currentScore; // Scriptable Object
 
@@ -37,8 +37,9 @@ public class EnemyHealth : MonoBehaviour
 
         rb = GetComponent <Rigidbody> ();
         agent = GetComponent <NavMeshAgent> ();
-        currentHealth = startingHealth;
+        currentHealth = startingHealth.value;
         enemyManager = FindObjectOfType<EnemyManager> ();
+
     }
 
 
@@ -107,7 +108,7 @@ public class EnemyHealth : MonoBehaviour
         isDead = false;
         isSinking = false;
         rb.isKinematic = false;
-        currentHealth = startingHealth;
+        currentHealth = startingHealth.value;
         gameObject.transform.position = location[index].transform.position;
         gameObject.transform.rotation = location[index].transform.rotation;
         agent.enabled = true;

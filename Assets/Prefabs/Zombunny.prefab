@@ -5232,11 +5232,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b9d14572410594cb85d40eedfb150c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
   currentHealth: 0
   sinkSpeed: 2.5
   scoreValue: 10
   deathClip: {fileID: 8300000, guid: 1d3bfb9269f136947bf8ac164cace1ff, type: 3}
+  startingHealth: {fileID: 11400000, guid: 572bacb997c63a64487237e92e1a2a60, type: 2}
   enemiesCounts: {fileID: 11400000, guid: a3a2cefaced0b8a4d8b4ab47e93c7f00, type: 2}
   currentScore: {fileID: 11400000, guid: 02c7dfa1d4dd0f845817d119b10e38db, type: 2}
-  myself: {fileID: 1719079804300652}
